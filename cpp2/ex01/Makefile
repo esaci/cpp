@@ -1,25 +1,24 @@
-NAME = BRAIN
+NAME = Fixed
 
 CXX = c++
-CXX_FLAGS = -Werror -Wextra -Wall -std=c++98
+CXX_FLAGS = -Wextra -Werror -Wall -std=c++98
 
-SRCS_DIR = ./
-
-SRCS = main.cpp
+SRC_DIR = ./
+SRCS =	main.cpp \
+		Fixed.cpp
 
 OBJ_DIR = objects/
-OBJ = $(SRCS:.cpp=.o)
+OBJ = $(SRCS:%.cpp=%.o)
 OBJS = $(addprefix $(OBJ_DIR), $(OBJ))
-DEP = $(OBJS:.o=.d)
-
+DEP = $(OBJ:%.o=%.d)
 $(NAME) : $(OBJS)
 	$(CXX) $(CXX_FLAGS) $^ -o $@
 
 -include $(DEP)
 
-$(OBJ_DIR)%.o : $(SRCS_DIR)%.cpp
+$(OBJ_DIR)%.o : $(SRC_DIR)%.cpp
 	@mkdir -p $(@D)
-	$(CXX) $(CXX_FLAGS) -c $< -o $@
+	$(CXX) $(CXX_FLAGS) -MMD -o $@ -c $<
 
 all : $(NAME)
 
@@ -31,4 +30,4 @@ fclean : clean
 
 re : fclean all
 
-.PHONY : all re fclean clean
+.PHONY : all clean fclean re

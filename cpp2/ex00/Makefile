@@ -1,17 +1,16 @@
-NAME = karenFilter
+NAME = Fixed
 
 CXX = c++
-CXX_FLAGS = -Werror -Wextra -Wall -std=c++98
+CXX_FLAGS = -Wextra -Werror -Wall -std=c++98
 
 SRC_DIR = ./
 SRCS =	main.cpp \
-		Karen.cpp
+		Fixed.cpp
 
 OBJ_DIR = objects/
-OBJ = $(SRCS:.cpp=.o)
+OBJ = $(SRCS:%.cpp=%.o)
 OBJS = $(addprefix $(OBJ_DIR), $(OBJ))
-DEP = $(OBJS:.o=.d)
-
+DEP = $(OBJ:%.o=%.d)
 $(NAME) : $(OBJS)
 	$(CXX) $(CXX_FLAGS) $^ -o $@
 
@@ -21,17 +20,14 @@ $(OBJ_DIR)%.o : $(SRC_DIR)%.cpp
 	@mkdir -p $(@D)
 	$(CXX) $(CXX_FLAGS) -MMD -o $@ -c $<
 
-all: $(NAME)
+all : $(NAME)
 
-clean:
+clean :
 	rm -rf $(OBJ_DIR)
 
-fclean: clean
+fclean : clean
 	rm -rf $(NAME)
 
-re: fclean all
+re : fclean all
 
-clear:
-	rm *.replace
-
-.PHONY : all re fclean clean
+.PHONY : all clean fclean re
