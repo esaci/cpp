@@ -4,33 +4,40 @@ int Fixed::_NbrBit = 8;
 
 float	Fixed::toFloat( void ) const
 {
-	float res = this->getRawBits() >> Fixed::_NbrBit;
-	res = float((float)this->getRawBits() / (float)(1 << Fixed::_NbrBit));
+	float res = this->_RawBits >> Fixed::_NbrBit;
+	res = float((float)this->_RawBits / (float)(1 << Fixed::_NbrBit));
 	return (res);
 }
 
 Fixed::Fixed(float const value)
 {
-	this->setRawBits(value * (float)(1 << Fixed::_NbrBit));
+	std::cout << "Float constructor called" << std::endl;
+	this->_RawBits = roundf(value * (float)(1 << Fixed::_NbrBit));
 }
 
 Fixed::Fixed(int const value)
 {
+	std::cout << "Int constructor called" << std::endl;
 	int newvalue = value << Fixed::_NbrBit;
-
-	this->setRawBits(newvalue);
+	this->_RawBits = newvalue;
 }
-Fixed::Fixed( void ): _RawBits(0){}
-Fixed::Fixed(Fixed const &f)
+Fixed::Fixed( void ): _RawBits(0){std::cout << "Default constructor called" << std::endl;}
+Fixed::Fixed(Fixed const &f): _RawBits(f._RawBits){std::cout << "Copy constructor called" << std::endl;}
+Fixed::~Fixed( void ){std::cout << "Destructor called" << std::endl;}
+int		Fixed::getRawBits( void ) const
 {
-	this->_RawBits = f.getRawBits();
+	std::cout << "getRawBits member function called" << std::endl;
+	return(this->_RawBits);
 }
-Fixed::~Fixed( void ){}
-int		Fixed::getRawBits( void ) const{return(this->_RawBits);}
-void	Fixed::setRawBits(int const raw){this->_RawBits = raw;}
+void	Fixed::setRawBits(int const raw)
+{
+	std::cout << "setRawBits member function called" << std::endl;
+	this->_RawBits = raw;
+}
 
 Fixed	&Fixed::operator=(Fixed const &arg)
 {
+	std::cout << "Assignation operator called" << std::endl;
 	this->_RawBits = arg._RawBits;
 	return (*this);
 }

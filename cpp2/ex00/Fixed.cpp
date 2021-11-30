@@ -2,36 +2,23 @@
 
 int Fixed::_NbrBit = 8;
 
-Fixed::Fixed( void ): _RawBits(0){}
-Fixed::Fixed(Fixed &f): _RawBits(f.getRawBits()){}
-Fixed::~Fixed( void ){}
-int		Fixed::getRawBits( void) const{return(this->_RawBits);}
+Fixed::Fixed( void ): _RawBits(0){std::cout << "Default constructor called" << std::endl;}
+Fixed::Fixed(Fixed const &f): _RawBits(f._RawBits){std::cout << "Copy constructor called" << std::endl;}
+Fixed::~Fixed( void ){std::cout << "Destructor called" << std::endl;}
+int		Fixed::getRawBits( void ) const
+{
+	std::cout << "getRawBits member function called" << std::endl;
+	return(this->_RawBits);
+}
 void	Fixed::setRawBits(int const raw)
 {
-	int	i;
-	int	val;
-	this->_RawBits = 0;
-	int tmp;
-
-	if (raw >= 0)
-		val = raw;
-	else
-		val = -raw;
-	for(i = 23; i > -1; i--)
-	{
-		tmp = pow(2, i);
-		if (val >= tmp)
-		{
-			this->_RawBits += pow(2, 8 + i);
-			val -= tmp;
-		}
-	}
-	if (raw < 0)
-		this->_RawBits = -this->_RawBits;
+	std::cout << "setRawBits member function called" << std::endl;
+	this->_RawBits = raw;
 }
 
 Fixed	&Fixed::operator=(Fixed const &arg)
 {
+	std::cout << "Assignation operator called" << std::endl;
 	this->_RawBits = arg._RawBits;
 	return (*this);
 }

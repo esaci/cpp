@@ -9,7 +9,7 @@ class	Fixed
 		int	_RawBits;
 		static int	_NbrBit;
 	public:
-		Fixed(Fixed &f);
+		Fixed(Fixed const &f);
 		Fixed( void );
 		~Fixed( void );
 		Fixed &operator=(Fixed const &arg);

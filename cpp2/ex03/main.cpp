@@ -17,14 +17,14 @@ int main( void ) {
 		std::cout << "c is " << c.toInt() << " as integer" << std::endl;
 		std::cout << "d is " << d.toInt() << " as integer" << std::endl;
 		std::cout << "----------------------------------------------------" << std::endl;
+		std::cout << "a + b is " << a + b << std::endl;
+		std::cout << "b * a is " << b * a << std::endl;
+		std::cout << "b / a is " << b / a << std::endl;
+		std::cout << "d * c is " << d * c << std::endl;
 		Fixed e(a + b);
 		Fixed f(b * a);
 		Fixed g(b / a);
 		Fixed h(d * c);
-		std::cout << "a + b is " << e << std::endl;
-		std::cout << "b * a is " << f << std::endl;
-		std::cout << "b / a is " << g << std::endl;
-		std::cout << "d * c is " << h << std::endl;
 		std::cout << "e is " << e.toInt() << " as integer" << std::endl;
 		std::cout << "f is " << f.toInt() << " as integer" << std::endl;
 		std::cout << "g is " << g.toInt() << " as integer" << std::endl;
