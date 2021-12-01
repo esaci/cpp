@@ -1,4 +1,4 @@
-NAME = Fixed
+NAME = BSP
 
 CXX = c++
 CXX_FLAGS = -Wextra -Werror -Wall -std=c++98
