@@ -5,7 +5,9 @@ CXX_FLAGS = -Wextra -Werror -Wall -std=c++98
 
 SRC_DIR = ./
 SRCS =	main.cpp \
-		Fixed.cpp
+		Fixed.cpp \
+		Point.cpp \
+		bsp.cpp
 
 OBJ_DIR = objects/
 OBJ = $(SRCS:%.cpp=%.o)

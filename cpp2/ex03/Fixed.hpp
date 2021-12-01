@@ -20,10 +20,10 @@ class	Fixed
 		Fixed( void );
 		~Fixed( void );
 		Fixed	&operator=(Fixed const &arg);
-		Fixed	operator+(Fixed const &arg);
-		Fixed	operator-(Fixed const &arg);
-		Fixed	operator*(Fixed const &arg);
-		Fixed	operator/(Fixed const &arg);
+		Fixed	operator+(Fixed const &arg) const;
+		Fixed	operator-(Fixed const &arg) const;
+		Fixed	operator*(Fixed const &arg) const;
+		Fixed	operator/(Fixed const &arg) const;
 		bool	operator==(Fixed const &arg) const;
 		bool	operator!=(Fixed const &arg) const;
 		bool	operator>(Fixed const &arg) const;

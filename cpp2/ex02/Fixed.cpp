@@ -56,10 +56,10 @@ std::ostream	&operator<<(std::ostream &o, Fixed const &arg)
 	return (o);
 }
 
-Fixed	Fixed::operator+(Fixed const &arg){return(Fixed(this->toFloat() + arg.toFloat()));}
-Fixed	Fixed::operator-(Fixed const &arg){return(Fixed(this->toFloat() - arg.toFloat()));}
-Fixed	Fixed::operator/(Fixed const &arg){return(Fixed(this->toFloat() / arg.toFloat()));}
-Fixed	Fixed::operator*(Fixed const &arg){return(Fixed(this->toFloat() * arg.toFloat()));}
+Fixed	Fixed::operator+(Fixed const &arg) const{return(Fixed(this->toFloat() + arg.toFloat()));}
+Fixed	Fixed::operator-(Fixed const &arg) const{return(Fixed(this->toFloat() - arg.toFloat()));}
+Fixed	Fixed::operator/(Fixed const &arg) const{return(Fixed(this->toFloat() / arg.toFloat()));}
+Fixed	Fixed::operator*(Fixed const &arg) const{return(Fixed(this->toFloat() * arg.toFloat()));}
 
 bool	Fixed::operator>(Fixed const &arg) const{return(this->_RawBits > arg._RawBits);}
 bool	Fixed::operator>=(Fixed const &arg) const{return(this->_RawBits >= arg._RawBits);}
