@@ -5,8 +5,6 @@
 
 class FragTrap: virtual public ClapTrap
 {
-	private:
-
 	public:		
 		FragTrap( void );
 		FragTrap(FragTrap const &arg);
