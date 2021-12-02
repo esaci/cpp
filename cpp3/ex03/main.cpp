@@ -82,6 +82,7 @@ int main ( void )
 			tab[i].takeDamage(i);
 			tab[i].guardGate();
 			tab[i].highFivesGuys();
+			std::cout << "Name of this DiamondTrap is " << tab[i].getName() << " and his ClapTrap name is " << tab[i].getClapTrapName() << std::endl; 
 		}	
 	}
 	return (0);
