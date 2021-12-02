@@ -62,6 +62,7 @@ int main ( void )
 		tab[i].attack(bat);
 		tab[i].beRepaired(i);
 		tab[i].takeDamage(i);
+		tab[i].highFivesGuys();
 	}
 	}
 	return (0);

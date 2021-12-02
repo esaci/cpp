@@ -17,7 +17,6 @@ class ClapTrap
 		int			Hitpoints;
 		int			Energy_points;
 		int			Attack_damage;
-		ClapTrap(std::string const &Name, int Hp, int Ep, int Ad);
 };
 
 #endif

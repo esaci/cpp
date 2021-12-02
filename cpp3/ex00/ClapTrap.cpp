@@ -13,6 +13,6 @@ ClapTrap	&ClapTrap::operator=(ClapTrap const &arg)
 	return (*this);
 }
 
-void	ClapTrap::attack(std::string const &target) const{std::cout << "ClapTrap " << Name << " attack " << target << " !" << std::endl;}
-void	ClapTrap::takeDamage(unsigned int amount){std::cout << "ClapTrap " << Name << " takes " << amount << " Damage !" << std::endl;Hitpoints -= amount;}
-void	ClapTrap::beRepaired(unsigned int amount){std::cout << "ClapTrap " << Name << " is Repaired for " << amount << " HitPoint(s) !" << std::endl;Hitpoints += amount;}
+void	ClapTrap::attack(std::string const &target) const{std::cout << "ClapTrap " << Name << " attack " << target << " and inflict " << Attack_damage << " !" << std::endl;}
+void	ClapTrap::takeDamage(unsigned int amount){std::cout << "ClapTrap " << Name << " with " << Hitpoints << " hp takes " << amount << " Damage !" << std::endl;Hitpoints -= amount;}
+void	ClapTrap::beRepaired(unsigned int amount){std::cout << "ClapTrap " << Name << " with " << Hitpoints << " hp is Repaired for " << amount << " HitPoint(s) !" << std::endl;Hitpoints += amount;}
