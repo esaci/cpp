@@ -13,8 +13,10 @@ class DiamondTrap: virtual public FragTrap, virtual public ScavTrap
 		DiamondTrap(std::string const &arg);
 		DiamondTrap(DiamondTrap const &arg);
 		~DiamondTrap( void );
-		DiamondTrap	&operator=(DiamondTrap const &arg);
-		void	attack( void ){ScavTrap::attack();}
+		void	attack(std::string const &arg);
+		DiamondTrap &operator=(DiamondTrap const &arg);
+		std::string const &getName( void ) const;
+		std::string const &getClapTrapName( void ) const;
 };
 
 #endif
