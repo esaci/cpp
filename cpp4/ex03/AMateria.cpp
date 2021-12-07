@@ -1,4 +1,5 @@
 #include "AMateria.hpp"
+#include "ICharacter.hpp"
 
 AMateria::AMateria( void ):p_type(""){std::cout << "AMateria Default Constructor" << std::endl;}
 AMateria::AMateria(AMateria const &arg):p_type(arg.p_type){std::cout << "AMateria Copy Constructor of " << p_type << std::endl;}

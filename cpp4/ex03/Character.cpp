@@ -11,19 +11,38 @@ Character::~Character( void )
 	}
 }
 
-Character::Character( void ):tmp({NULL, NULL, NULL, NULL}){std::cout << "Character Default Constructor" << std::endl;}
-Character::Character(Character const &arg){*this = arg;std::cout << "Character Copy Constructor" << std::endl;}
-Character::Character(std::string const &arg){Name = arg;std::cout << "Character Constructor" << std::endl;}
+Character::Character( void )
+{
+	for(int i = 0; i < 4; i++)
+		tmp[i] = NULL;
+	std::cout << "Character Default Constructor" << std::endl;
+}
+
+Character::Character(Character const &arg)
+{
+	for(int i = 0; i < 4; i++)
+		tmp[i] = arg.tmp[i];
+	std::cout << "Character Copy Constructor" << std::endl;
+}
+
+Character::Character(std::string const &arg)
+{
+	Name = arg;
+	for(int i = 0; i < 4; i++)
+		tmp[i] = NULL;
+	std::cout << "Character Constructor" << std::endl;
+}
+
 Character &Character::operator=(Character const &arg)
 {
-	AMateria *tmp2[] = {arg.Inv0, arg.Inv1, arg.Inv2, arg.Inv3};
 	std::cout << "Character Destructor" << std::endl;
 	for (int i = 0; i < 4; i++)
 	{
 		if (tmp[i])
 			delete tmp[i];
-		tmp[i] = tmp2[i]->clone();
+		tmp[i] = arg.tmp[i]->clone();
 	}
+	return (*this);
 }
 
 std::string	const &Character::getName( void ) const{return(this->Name);}
@@ -31,6 +50,7 @@ std::string	const &Character::getName( void ) const{return(this->Name);}
 void	Character::equip(AMateria *arg)
 {
 	int i;
+
 	for(i = 0; i < 4; i++)
 	{
 		if (!tmp[i])

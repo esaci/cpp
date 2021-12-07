@@ -1,4 +1,4 @@
-NAME = Brain
+NAME = Game
 
 CXX = c++
 CXX_FLAGS = -Werror -Wextra -Wall -std=c++98

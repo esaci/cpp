@@ -3,7 +3,7 @@
 Cure::Cure( void ){p_type = "cure";std::cout << "Cure Default Constructor" << std::endl;}
 Cure::Cure(Cure const &arg){p_type = arg.p_type;std::cout << "Cure Copy Constructor" << std::endl;}
 Cure::~Cure( void ){std::cout << "Cure Destructor" << std::endl;}
-Cure	&Cure::operator=(Cure const &arg){p_type = arg.p_type;}
+Cure	&Cure::operator=(Cure const &arg){p_type = arg.p_type;return (*this);}
 AMateria	*Cure::clone( void ) const
 {
 	return (new Cure());
