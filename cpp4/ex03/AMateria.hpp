@@ -11,7 +11,7 @@ class AMateria
 		AMateria(std::string const &);
 		AMateria( void );
 		AMateria(AMateria const &);
-		~AMateria( void );
+		virtual ~AMateria( void );
 		AMateria &operator=(AMateria const &);
 		virtual AMateria	*clone( void ) const = 0;
 		virtual	void	use(ICharacter	&);
