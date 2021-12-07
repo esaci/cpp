@@ -5,14 +5,16 @@
 
 class AMateria
 {
-public:
-	AMateria(std::string const &);
-	AMateria( void );
-	AMateria(AMateria const &);
-	~AMateria( void );
-	AMateria const &operator=(AMateria const &);
-	virtual AMateria	*clone( void ) const = 0;
-	virtual	void	use(ICharacter	&);
+	protected:
+		std::string p_type;
+	public:
+		AMateria(std::string const &);
+		AMateria( void );
+		AMateria(AMateria const &);
+		~AMateria( void );
+		AMateria &operator=(AMateria const &);
+		virtual AMateria	*clone( void ) const = 0;
+		virtual	void	use(ICharacter	&);
 };
 
 #endif
