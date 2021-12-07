@@ -7,3 +7,4 @@ AMateria::~AMateria( void ){std::cout << "AMateria Destructor for" << p_type << 
 
 AMateria &AMateria::operator=(AMateria const &arg){p_type = arg.p_type; return (*this);}
 void	AMateria::use(ICharacter &target){std::cout << "* use on " << target.getName() << " *" << std::endl;}
+std::string	const &AMateria::getType( void ) const {return (this->p_type);}

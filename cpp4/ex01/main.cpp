@@ -22,9 +22,11 @@ int main( void )
 	const	Cat *vCat = new Cat();
 	const	Dog cDog(*vDog);
 	const	Cat cCat(*vCat);
-	const	Dog fcDog = cDog;
-	const	Cat fcCat = cCat;
-
+	Dog fcDog;
+	Cat fcCat;
+	
+	fcDog = cDog;
+	fcCat = cCat;
 	delete vCat;
 	delete vDog;
 	return (0);

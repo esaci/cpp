@@ -2,7 +2,6 @@
 
 Character::~Character( void )
 {
-	AMateria *tmp[] = {Inv0, Inv1, Inv2, Inv3};
 
 	std::cout << "Character Destructor" << std::endl;
 	for (int i = 0; i < 4; i++)
@@ -12,12 +11,11 @@ Character::~Character( void )
 	}
 }
 
-Character::Character( void ){std::cout << "Character Default Constructor" << std::endl;}
-Character::Character(Character const &arg):ICharacter(arg){std::cout << "Character Copy Constructor" << std::endl;}
+Character::Character( void ):tmp({NULL, NULL, NULL, NULL}){std::cout << "Character Default Constructor" << std::endl;}
+Character::Character(Character const &arg){*this = arg;std::cout << "Character Copy Constructor" << std::endl;}
 Character::Character(std::string const &arg){Name = arg;std::cout << "Character Constructor" << std::endl;}
 Character &Character::operator=(Character const &arg)
 {
-	AMateria *tmp[] = {Inv0, Inv1, Inv2, Inv3};
 	AMateria *tmp2[] = {arg.Inv0, arg.Inv1, arg.Inv2, arg.Inv3};
 	std::cout << "Character Destructor" << std::endl;
 	for (int i = 0; i < 4; i++)
@@ -33,7 +31,6 @@ std::string	const &Character::getName( void ) const{return(this->Name);}
 void	Character::equip(AMateria *arg)
 {
 	int i;
-	AMateria *tmp[] = {Inv0, Inv1, Inv2, Inv3};
 	for(i = 0; i < 4; i++)
 	{
 		if (!tmp[i])
@@ -48,7 +45,6 @@ void	Character::equip(AMateria *arg)
 
 void	Character::unequip(int idx)
 {
-	AMateria *tmp[] = {Inv0, Inv1, Inv2, Inv3};
 
 	if (idx < 0 || idx > 3 || !tmp[idx])
 	{
@@ -59,11 +55,10 @@ void	Character::unequip(int idx)
 
 void	Character::use(int idx, ICharacter &arg)
 {
-	AMateria *tmp[] = {Inv0, Inv1, Inv2, Inv3};
 
 	if (idx < 0 || idx > 3 || !tmp[idx])
 	{
 		return ;
 	}
-	tmp[idx]->use();
+	tmp[idx]->use(arg);
 }

@@ -8,7 +8,9 @@ SRCS =	main.cpp		\
 		AMateria.cpp	\
 		Ice.cpp			\
 		Cure.cpp		\
+		ICharacter.cpp	\
 		Character.cpp	\
+		IMateriaSource.cpp	\
 		MateriaSource.cpp
 
 OBJ_DIR = objects/

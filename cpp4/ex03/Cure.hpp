@@ -1,8 +1,9 @@
 #ifndef CURE_HPP
 # define CURE_HPP
+
 #include "AMateria.hpp"
 
-class Cure: AMateria
+class Cure: virtual public AMateria
 {
 	public:
 		Cure( void );

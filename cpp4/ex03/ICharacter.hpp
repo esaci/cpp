@@ -3,15 +3,12 @@
 
 # include <iostream>
 
-#include "AMateria.hpp"
+# include "AMateria.hpp"
 
 class ICharacter
 {
 	protected:
-		AMateria	*Inv0 = NULL;
-		AMateria	*Inv1 = NULL;
-		AMateria	*Inv2 = NULL;
-		AMateria	*Inv3 = NULL;
+		AMateria *tmp[4];
 		std::string Name;
 	public:
 		virtual	~ICharacter( void );
