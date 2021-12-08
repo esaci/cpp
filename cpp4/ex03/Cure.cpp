@@ -9,4 +9,4 @@ AMateria	*Cure::clone( void ) const
 	return (new Cure());
 }
 
-void	Cure::use(ICharacter &targer){std::cout << "* heals" << targer.getName() << "'s wounds *" << std::endl;}
+void	Cure::use(ICharacter &targer){std::cout << "* heals " << targer.getName() << "'s wounds *" << std::endl;}

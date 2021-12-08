@@ -18,13 +18,22 @@ MateriaSource	&MateriaSource::operator=(MateriaSource const &arg)
 		tmp[i] = arg.tmp[i];
 	return (*this);
 }
-MateriaSource::~MateriaSource( void ){std::cout << "MateriaSource Destructor" << std::endl;}
+MateriaSource::~MateriaSource( void )
+{
+	for(int i = 0; i < 4; i++)
+	{
+		if (tmp[i])
+			delete(tmp[i]);
+	}
+	std::cout << "MateriaSource Destructor" << std::endl;
+}
 
 void MateriaSource::learnMateria(AMateria *arg)
 {
+	int i;
 	if (!arg)
 		return ;
-	for(int i = 0; i < 4; i++)
+	for(i = 0; i < 4; i++)
 	{
 		if (!tmp[i])
 		{
@@ -32,6 +41,8 @@ void MateriaSource::learnMateria(AMateria *arg)
 			break;
 		}
 	}
+	if (i == 4)
+		std::cout << "MateriaSource already learned 4 Materia !" << std::endl;
 }
 
 

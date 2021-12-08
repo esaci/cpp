@@ -56,11 +56,15 @@ void	Character::equip(AMateria *arg)
 		if (!tmp[i])
 		{
 			tmp[i] = arg;
-			break;
+			return ;
 		}
 	}
 	if (i == 4)
-		std::cout << "Character " << Name << "already has 4 Materia !" << std::endl;
+	{
+		if (arg)
+			delete arg;
+		std::cout << "Character " << Name << " already has 4 Materia !" << std::endl;
+	}
 }
 
 void	Character::unequip(int idx)
