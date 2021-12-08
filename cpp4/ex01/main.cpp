@@ -29,5 +29,10 @@ int main( void )
 	fcCat = cCat;
 	delete vCat;
 	delete vDog;
+	std::cout << "Troisieme Test --------------------------------------------------" << std::endl;
+	Dog test;
+	{
+		Dog test2 = test;
+	}
 	return (0);
 }

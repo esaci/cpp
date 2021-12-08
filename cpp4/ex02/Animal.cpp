@@ -7,7 +7,6 @@ Animal::~Animal( void ){std::cout << "Animal Destructor for " << type << std::en
 
 Animal &Animal::operator=(Animal const &arg){type = arg.type; return (*this);}
 
-Animal::Animal(std::string const &ty): type(ty){std::cout << "Animal Constructor for a type " << type << std::endl;}
 
 std::string const &Animal::getType( void ) const{return (type);}
 

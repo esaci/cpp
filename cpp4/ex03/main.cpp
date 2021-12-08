@@ -5,11 +5,8 @@
 
 int main(int ac, char *av[])
 {
-	int tmp = 0;
-	if (ac == 2 && av)
-		tmp = 1;
-	if (ac == 3 && av)
-		tmp = 2; 
+	int tmp = ac - 1;
+	(void)av;
 	if (!tmp)
 	{
 		IMateriaSource* src = new MateriaSource();
@@ -69,10 +66,10 @@ int main(int ac, char *av[])
 		src->learnMateria(new Cure());
 		ICharacter* me = new Character("me");
 		AMateria* tmp;
-		tmp = src->createMateria("ice");
-		me->equip(tmp);
-		tmp = src->createMateria("cure");
-		me->equip(tmp);
+		AMateria* tmp1 = src->createMateria("ice");
+		me->equip(tmp1);
+		AMateria* tmp2 = src->createMateria("cure");
+		me->equip(tmp2);
 		tmp = src->createMateria("ice");
 		me->equip(tmp);
 		tmp = src->createMateria("ice");
@@ -91,6 +88,18 @@ int main(int ac, char *av[])
 		delete bob;
 		delete me;
 		delete src;
+		delete tmp1;
+		delete tmp2;
+		return (0);
+	}
+	if (tmp == 3)
+	{
+		Character test;
+		{
+			Character lol = test;
+		}
+		Character pardon;
+		pardon = test;
 		return (0);
 	}
 	return 0;

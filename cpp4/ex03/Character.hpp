@@ -5,8 +5,11 @@
 
 class Character: virtual public ICharacter
 {
+	private:
+		AMateria *tmp[4];
+		std::string Name;
 	public:
-		~Character( void );
+		virtual ~Character( void );
 		Character( void );
 		Character(Character const &);
 		Character(std::string const &);

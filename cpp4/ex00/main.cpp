@@ -16,10 +16,19 @@ int main( void )
 	std::cout << "------------------------------------" << std::endl;
 	const WrongAnimal *Wcat = new WrongAnimal();
 	const WrongAnimal *Vcat = new WrongCat();
+	const WrongCat *UVcat = new WrongCat();
+
 	std::cout << Wcat->getType() << " " << std::endl;
 	std::cout << Vcat->getType() << " " << std::endl;
 	Wcat->makeSound(); //will output the cat sound!
 	Vcat->makeSound();
-
+	std::cout << UVcat->getType() << " " << std::endl;
+	UVcat->makeSound();
+	delete UVcat;
+	delete Wcat;
+	delete Vcat;
+	delete meta;
+	delete j;
+	delete i;
 	return (0);
 }

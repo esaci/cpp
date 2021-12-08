@@ -21,7 +21,12 @@ Character::Character( void )
 Character::Character(Character const &arg)
 {
 	for(int i = 0; i < 4; i++)
-		tmp[i] = arg.tmp[i];
+	{
+		if (arg.tmp[i])
+			tmp[i] = arg.tmp[i]->clone();
+		else
+			tmp[i] = NULL;
+	}
 	std::cout << "Character Copy Constructor" << std::endl;
 }
 
@@ -40,7 +45,10 @@ Character &Character::operator=(Character const &arg)
 	{
 		if (tmp[i])
 			delete tmp[i];
-		tmp[i] = arg.tmp[i]->clone();
+		if (arg.tmp[i])
+			tmp[i] = arg.tmp[i]->clone();
+		else
+			tmp[i] = NULL;
 	}
 	return (*this);
 }

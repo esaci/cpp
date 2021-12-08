@@ -7,15 +7,12 @@
 
 class ICharacter
 {
-	protected:
-		AMateria *tmp[4];
-		std::string Name;
 	public:
-		virtual	~ICharacter( void );
+		virtual	~ICharacter( void ) {}
 		virtual	std::string const &getName( void ) const = 0;
-		virtual void	equip(AMateria*) = 0;
-		virtual void	unequip(int) = 0;
-		virtual void	use(int, ICharacter&) = 0;
+		virtual void	equip(AMateria* m) = 0;
+		virtual void	unequip(int idx) = 0;
+		virtual void	use(int idx, ICharacter &target) = 0;
 };
 
 #endif

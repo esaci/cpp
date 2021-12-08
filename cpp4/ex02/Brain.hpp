@@ -10,7 +10,7 @@ protected:
 public:
 	Brain( void );
 	Brain(Brain	const &);
-	~Brain( void );
+	virtual ~Brain( void );
 	Brain	&operator=(Brain const&);
 	void setIdeas(std::string const &);
 	void showIdeas( void );
