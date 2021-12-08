@@ -34,5 +34,7 @@ int main( void )
 	{
 		Dog test2 = test;
 	}
+	Dog pardon;
+	pardon = test;
 	return (0);
 }
