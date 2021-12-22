@@ -3,7 +3,7 @@
 #include "WrongCat.hpp"
 
 int main( void )
-{
+{/* 
 	const Animal *all[100];
 	int	i;
 
@@ -35,6 +35,11 @@ int main( void )
 		Dog test2 = test;
 	}
 	Dog pardon;
-	pardon = test;
+	pardon = test; */
+	Animal *ptr = new Dog();
+	Animal *ptr2 = new Cat();
+	*ptr = *ptr2;
+	delete ptr;
+	delete ptr2;
 	return (0);
 }
