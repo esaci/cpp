@@ -35,12 +35,16 @@ void	Bureaucrat::setDecrementerNote( void )
 {
 	if (Note < 150)
 		Note++;
+	else
+		throw Bureaucrat::GradeTooLowException();
 }
 
 void	Bureaucrat::setIncrementerNote( void )
 {
 	if (Note > 1)
 		Note--;
+	else
+		throw Bureaucrat::GradeTooHighException();
 }
 
 std::ostream &operator<<(std::ostream &arg, Bureaucrat const &B){arg << "ID : Bureaucrat " << B.getName() << " avec une Note de " << B.getGrade(); return (arg);}
