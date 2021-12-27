@@ -71,8 +71,6 @@ Convert::Convert(std::string const &arg): _precision(1), _value(arg)
 		else
 			generate_print(static_cast<int>(atoi(arg.c_str())));
 	}
-	else if (check(arg))
-		
 	else if (arg.find('.') != i)
 	{
 		i = arg.find('.') + 1;
