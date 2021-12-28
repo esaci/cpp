@@ -4,14 +4,13 @@
 # include <iostream>
 
 template <typename T>
-void	iter(T *p, size_t len, void (*f)(T &))
+void	iter(T *p, size_t len, void (*f)(T const &))
 {
 	if (!p)
 		return ;
 	for(size_t i = 0; i < len; i++)
 	{
-		if (p[i])
-			f(p[i]);
+		f(p[i]);
 	}
 }
 

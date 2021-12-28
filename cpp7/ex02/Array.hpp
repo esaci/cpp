@@ -20,11 +20,19 @@ class Array
 		};
 		Array<T>( void ): _array(NULL), _len(0){}
 		Array<T>(size_t const &arg): _array(new T[arg]), _len(arg){}
-		Array<T>(Array const &arg): _len(arg._len)
+		Array<T>(Array<T> const &arg): _len(arg._len)
 		{
 			_array = new T[arg._len];
 			for(size_t i = 0; i < _len; i++)
 				_array[i] = arg._array[i];
+		}
+		T	&operator[](size_t const &arg)
+		{
+			if (!_len)
+				throw OutofBondExeption();
+			if (arg < _len)
+				return (_array[arg]);
+			throw OutofBondExeption();
 		}
 		Array	&operator=(Array const &arg)
 		{
@@ -39,14 +47,6 @@ class Array
 		virtual ~Array( void )
 		{
 			delete [] _array;
-		}
-		T	&operator[](size_t const &arg)
-		{
-			if (!_array)
-				throw OutofBondExeption();
-			if (arg < _len)
-				return (_array[arg]);
-			throw OutofBondExeption();
 		}
 		size_t	const &size( void ) const
 		{
