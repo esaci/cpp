@@ -15,15 +15,15 @@ class Array
 			public:
 				virtual	const char *what( void ) const throw()
 				{
-					return ("Array: Out of Bond !");
+					return ("Array: Out of Bounds !");
 				}
 		};
 		Array<T>( void ): _array(NULL), _len(0){}
-		Array<T>(size_t const &arg): _array(new T[arg]), _len(arg){}
+		Array<T>(size_t const &arg): _array(new T[arg]()), _len(arg){}
 		Array<T>(Array<T> const &arg): _len(arg._len)
 		{
 			_array = new T[arg._len];
-			for(size_t i = 0; i < _len; i++)
+			for(size_t i = 0; i < arg._len; i++)
 				_array[i] = arg._array[i];
 		}
 		T	&operator[](size_t const &arg)
@@ -38,8 +38,8 @@ class Array
 		{
 			if (_array)
 				delete [] _array;
-			_array = new T[arg._len];
 			_len = arg._len;
+			_array = new T[_len];
 			for(size_t i = 0; i < _len; i++)
 				_array[i] = arg._array[i];
 			return (*this);
