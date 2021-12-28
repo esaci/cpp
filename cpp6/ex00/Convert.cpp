@@ -13,7 +13,7 @@ void	Convert::generate_print(char const &tmp) const
 
 void	Convert::generate_print(int const &tmp) const
 {
-	if (tmp > 126 || tmp < 0)
+	if (tmp > 127 || tmp < 0)
 			print_char("impossible");
 		else
 			print_char(static_cast<char>(tmp));
@@ -26,7 +26,7 @@ void	Convert::generate_print(float const &tmp) const
 {
 	if (tmp == tmp && tmp != tmp - 1 && tmp != tmp + 1)
 	{
-		if (tmp > 126 || tmp < 0)
+		if (tmp > 127 || tmp < 0)
 			print_char("impossible");
 		else
 			print_char(static_cast<char>(tmp));
@@ -45,7 +45,7 @@ void	Convert::generate_print(double const &tmp) const
 {
 	if (tmp == tmp && tmp != tmp - 1 && tmp != tmp + 1)
 	{
-		if (tmp > 126 || tmp < 0)
+		if (tmp > 127 || tmp < 0)
 			print_char("impossible");
 		else
 			print_char(static_cast<char>(tmp));
