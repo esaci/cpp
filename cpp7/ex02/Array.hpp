@@ -18,7 +18,7 @@ class Array
 					return ("Array: Out of Bounds !");
 				}
 		};
-		Array<T>( void ): _array(NULL), _len(0){}
+		Array<T>( void ): _array(new T[0]()), _len(0){}
 		Array<T>(size_t const &arg): _array(new T[arg]()), _len(arg){}
 		Array<T>(Array<T> const &arg): _len(arg._len)
 		{
