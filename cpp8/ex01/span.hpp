@@ -7,29 +7,41 @@
 
 class Span
 {
-	class OutofBoundException : public std::exception
-	{
-		virtual char const *what( void ) const throw();
-	};
 	private:
 		std::vector<int> *_vector;
 		unsigned int _N;
-		unsigned int _index;
 	public:
+		class OutofBoundException : public std::exception
+		{
+			virtual char const *what( void ) const throw();
+		};
+		class ShortSize : public std::exception
+		{
+			virtual char const *what( void ) const throw();
+		};
 		Span( void );
-		Span(unsigned int &arg);
+		Span(unsigned int );
+		Span(int );
 		Span(Span const &);
 		virtual	~Span( void );
 		Span	&operator=(Span const &);
-		void	addNumber(int &);
-		template <typename T>
-		void Span::addNumber(typename T::iterator it, typename T::iterator ite)
-		{
-			for(it; it != ite; it++)
-				_vector->push_back(*it);
-		}
-		int		&shortestSpan( void );
-		int		&longestSpan( void );
+		void	addNumber(int );
+		unsigned int	shortestSpan( void );
+		unsigned int	longestSpan( void );
+		std::vector<int> &getVector( void );
+		unsigned int	&getsizeLimit( void );
 };
+
+template <typename T>
+void addNumber(Span &arg, T &arg2)
+{
+	typename T::iterator it = arg2.begin();
+	typename T::iterator ite = arg2.end();
+	for(; it != ite; it++){
+		if (arg.getVector().size() == arg.getsizeLimit())
+			throw Span::OutofBoundException();
+		arg.getVector().push_back(*it);
+	}
+}
 
 # endif

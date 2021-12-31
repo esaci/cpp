@@ -1,11 +1,11 @@
-NAME = span
+NAME = Mutantstack
 
 CXX = c++
 CXX_FLAGS = -Werror -Wextra -Wall -std=c++98
 
 SRCS_DIR = ./
-SRC =	main.cpp \
-		span.cpp	
+SRC =	main.cpp	\
+		mutantstack.cpp
 
 OBJ_DIR = ./objects/
 OBJ = $(SRC:.cpp=.o)
