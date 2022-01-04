@@ -12,9 +12,11 @@ void	test_vector( void )
 	int	test2[] = {1, 2, 3, 4, 5};
 	std::vector<int>	test(test2, test2 + sizeof(test2) / sizeof(int));
 	std::vector<int>::iterator	tmp;
+	/* std::vector<char> test3;
+	easyfind(test3, 4); */
 	try
 	{
-		tmp = easyfind< std::vector<int> >(test, 3);
+		tmp = easyfind(test, 3);
 		std::cout << "Vector : " << *tmp << std::endl;
 	}
 	catch(const std::exception& e)

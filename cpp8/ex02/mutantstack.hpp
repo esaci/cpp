@@ -14,7 +14,7 @@ template <typename T> class MutantStack : public std::stack<T>
 		MutantStack<T>( void ): std::stack<T>(){}
 		MutantStack<T>(MutantStack const &arg):std::stack<T>(arg){}
 		virtual	~MutantStack<T>( void ){}
-		typedef  typename std::deque<T>::iterator iterator;
+		typedef  typename std::stack<T>::container_type::iterator iterator;
 		MutantStack<T>	&operator=(MutantStack<T> const &arg)
 		{
 			std::stack<T>::operator=(arg);
